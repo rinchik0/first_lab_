@@ -16,7 +16,7 @@ public class Container {
         numbers = new int[n];
     }
     /**
-     * Приватная функция, расширяющая массив в два раза (вызывается, когда не хватает места на запись нового числа)
+     * Приватная функция, расширяющая массив в два раза (вызывается, когда не хватает места на запись нового числа).
      */
     private void extend() {
         int constant = 2;
@@ -37,7 +37,7 @@ public class Container {
         cnt++;
     }
     /**
-     * Функция, возвращающая число под переданным индексом, в случае отсутствия такого возвращает null
+     * Функция, возвращающая число под переданным индексом, в случае отсутствия такого возвращает null.
      * @param index индекс
      * @return целое число под индексом
      */
@@ -83,11 +83,10 @@ public class Container {
         else numbers[cnt] = number;
         cnt++;
     }
-
     /**
      * Функция, добавляющая массив новых чисел на место под переданным индексом.
      * Если такой индекс недоступен, добавит либо в конец, либо в начало.
-     * @param Numbers массив
+     * @param Numbers массив для вставки
      * @param N длина массива
      * @param index индекс
      */
@@ -108,8 +107,19 @@ public class Container {
             cnt += N;
         }
     }
-    //  Функция, возвращающая индекс первого вхождения переданного числа. В случае отсутствия вернет -1
-    public int getIndexOf(int number) { return 0; }
+    /**
+     * Функция, возвращающая индекс первого вхождения переданного числа. В случае отсутствия вернет -1.
+     * @param number число для поиска
+     * @return индекс введенного числа в текущей коллекции контейнера
+     */
+    public int getIndexOf(int number) {
+        int i = 0;
+        while (i < cnt && numbers[i] != number)
+            i++;
+        if (numbers[i] == number)
+            return i;
+        return -1;
+    }
     // Операция удаления первого вхождения переданного числа.
     // В случае успешного удаления вернет true, иначе false
     public boolean delete(int number) { return false; }
@@ -117,16 +127,40 @@ public class Container {
     public boolean deleteLast() { return false; }
     // Операция удаления числа по его индексу
     public boolean deleteByIndex(int index) { return false; }
-    // Операция получения последнего числа в контейнере
-    public Integer getLast() { return 0; }
+    /**
+     * Функция, возвращающая последнее число в контейнере.
+     * @return число
+     */
+    public Integer getLast() {
+        if (cnt > 0) return numbers[cnt - 1];
+        return null;
+    }
     // Операция полного очищения контейнера
     public void clear() {}
-    // Функция, возвращающая true, если в контейнере есть числа, и false - если нет
-    public boolean isEmpty() { return false; }
-    // Функция, возвращающая true, если переданное число есть в контейнере, и false - если нет
-    public boolean has(int number) { return false; }
-    // Функция, возвращающая количество элементов в контейнере
-    public int size() { return 0; }
+    /**
+     * Функция, проверки пустоты контейнера.
+     * Возвращает true, если в контейнере есть числа, и false - если нет.
+     * @return true или false
+     */
+    public boolean isEmpty() {
+        return cnt == 0;
+    }
+    /**
+     * Функция проверки наличия числа в контейнере.
+     * Возвращает true, если переданное число есть в контейнере, и false - если нет.
+     * @param number число для проверки
+     * @return true или false
+     */
+    public boolean has(int number) {
+        return getIndexOf(number) != -1;
+    }
+    /**
+     * Функция, возвращающая количество элементов в контейнере.
+     * @return количество
+     */
+    public int size() {
+        return cnt;
+    }
     /**
      * Функция, возвращающая коллекцию элементов контейнера (без незаполненных нулей)
      * @return массив, состоящий из части массива numbers длиной cnt

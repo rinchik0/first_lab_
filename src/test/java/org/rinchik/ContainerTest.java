@@ -76,4 +76,72 @@ class ContainerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void getIndexOf() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 12};
+        Container c = new Container();
+        c.add(b, 8);
+
+        int[] actual = {c.getIndexOf(43), c.getIndexOf(9)};
+
+        int[] expected = {1, -1};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void getLast() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        int actual = c.getLast();
+
+        int expected = 23;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void isEmpty() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        boolean[] actual = new boolean[2];
+        actual[0] = c.isEmpty();
+        c.clear();
+        actual[1] = c.isEmpty();
+
+        boolean[] expected = {false, true};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void has() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        boolean[] actual = {c.has(98), c.has(87)};
+
+        boolean[] expected = {true, false};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void size() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        int actual = c.size();
+
+        int expected = 8;
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
