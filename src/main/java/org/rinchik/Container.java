@@ -6,15 +6,18 @@ package org.rinchik;
  */
 public class Container {
     private int[] numbers;
-    // n - хранит длину массива (выделенную, не заполненную)
-    // cnt - хранит длину заполненной части массива
     private int n, cnt;
+    /**
+     * Конструктор. Инициализирует пустой объект.
+     */
     public Container() {
         cnt = 0;
         n = 10;
         numbers = new int[n];
     }
-    // Операция расширения массива (вызывается, когда не хватает места на запись нового числа)
+    /**
+     * Приватная функция, расширяющая массив в два раза (вызывается, когда не хватает места на запись нового числа)
+     */
     private void extend() {
         int constant = 2;
         int[] lastNumbers = new int[n];
@@ -24,7 +27,10 @@ public class Container {
         System.arraycopy(lastNumbers, 0, numbers, 0, n);
         n = newN;
     }
-    // Операция добавления одного нового числа по умолчанию (в конец массива)
+    /**
+     * Функция, добавляющая новое число в конец контейнера.
+     * @param number число, которое следует добавить
+     */
     public void add(int number) {
         if (cnt == n) extend();
         numbers[cnt] = number;
@@ -32,7 +38,11 @@ public class Container {
     }
     // Функция, возвращающая числа под переданным индексом, в случае отсутстия такого возвращает null
     public Integer getByIndex(int index) { return 0; }
-    // Операция добавления массива новых чисел по умолчанию (в конец массива)
+    /**
+     * Функция, добавляющая массив новых чисел в конец контейнера.
+     * @param Numbers массив целых чисел
+     * @param N длина переданного массива
+     */
     public void add(int[] Numbers, int N) {
         if (N > 0) {
             while (n <= cnt + N) extend();
@@ -67,7 +77,10 @@ public class Container {
     public boolean has(int number) { return false; }
     // Функция, возвращающая количество элементов в контейнере
     public int size() { return 0; }
-    // Функция, возвращающая коллекцию элементов контейнера (без незаполненных нулей)
+    /**
+     * Функция, возвращающая коллекцию элементов контейнера (без незаполненных нулей)
+     * @return массив, состоящий из части массива numbers длиной cnt
+     */
     public int[] getAll() {
         int[] result = new int[cnt];
         System.arraycopy(numbers, 0, result, 0, cnt);
