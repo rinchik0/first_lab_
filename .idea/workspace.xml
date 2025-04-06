@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eafa59a4-6232-4bcc-a0cb-b9971208a035" name="Changes" comment="Добавлены все операции поиска и возвращения вспомогательной информации и их тестирование">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/rinchik/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/rinchik/Container.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/rinchik/ContainerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/rinchik/ContainerTest.java" afterDir="false" />
+    <list default="true" id="eafa59a4-6232-4bcc-a0cb-b9971208a035" name="Changes" comment="Добавлены все операции удаления и их тестирование">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743964853534</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Добавлены все операции удаления и их тестирование">
+      <option name="closed" value="true" />
+      <created>1743968287681</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743968287681</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -190,6 +196,7 @@
     <MESSAGE value="Добавлены java доки для реализованных методов" />
     <MESSAGE value="Добавлены все операции добавления чисел и их тестирование" />
     <MESSAGE value="Добавлены все операции поиска и возвращения вспомогательной информации и их тестирование" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлены все операции поиска и возвращения вспомогательной информации и их тестирование" />
+    <MESSAGE value="Добавлены все операции удаления и их тестирование" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлены все операции удаления и их тестирование" />
   </component>
 </project>
