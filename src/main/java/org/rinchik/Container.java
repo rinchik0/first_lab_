@@ -36,8 +36,16 @@ public class Container {
         numbers[cnt] = number;
         cnt++;
     }
-    // Функция, возвращающая числа под переданным индексом, в случае отсутстия такого возвращает null
-    public Integer getByIndex(int index) { return 0; }
+    /**
+     * Функция, возвращающая число под переданным индексом, в случае отсутствия такого возвращает null
+     * @param index индекс
+     * @return целое число под индексом
+     */
+    public Integer getByIndex(int index) {
+        if (index < cnt && index >= 0)
+            return numbers[index];
+        return null;
+    }
     /**
      * Функция, добавляющая массив новых чисел в конец контейнера.
      * @param Numbers массив целых чисел
@@ -52,12 +60,54 @@ public class Container {
             }
         }
     }
-    // Операция добавления одного нового числа на место под переданным индексом.
-    // Если такой индекс не доступен, добавит либо в конец, либо в начало
-    public void addToIndex(int number, int index) {}
-    // Операция добавления массива новых чисул на место под переданным индексом.
-    // Если такой индекс не доступен, добавит либо в конец, либо в начало
-    public void addToIndex(int[] Numbers, int N, int index) {}
+    /**
+     * Функция, добавляющая новое число на место под переданным индексом.
+     * Если такой индекс недоступен, добавит либо в конец, либо в начало.
+     * @param number число для вставки
+     * @param index индекс
+     */
+    public void addToIndex(int number, int index) {
+        if (n <= cnt + 1) extend();
+        if (index <= cnt) {
+            if (index >= 0) {
+                for (int i = cnt + 1; i > index; i--)
+                    numbers[i] = numbers[i - 1];
+                numbers[index] = number;
+            }
+            else {
+                for (int i = cnt + 1; i > 0; i--)
+                    numbers[i] = numbers[i - 1];
+                numbers[0] = number;
+            }
+        }
+        else numbers[cnt] = number;
+        cnt++;
+    }
+
+    /**
+     * Функция, добавляющая массив новых чисел на место под переданным индексом.
+     * Если такой индекс недоступен, добавит либо в конец, либо в начало.
+     * @param Numbers массив
+     * @param N длина массива
+     * @param index индекс
+     */
+    public void addToIndex(int[] Numbers, int N, int index) {
+        if (N > 0) {
+            while (n <= cnt + N) extend();
+            if (index <= cnt) {
+                if (index >= 0) {
+                    for (int i = cnt + N; i >= index + N; i--)
+                        numbers[i] = numbers[i - N];
+                    System.arraycopy(Numbers, 0, numbers, index, N);
+                } else {
+                    for (int i = cnt + N; i >= N; i--)
+                        numbers[i] = numbers[i - N];
+                    System.arraycopy(Numbers, 0, numbers, 0, N);
+                }
+            } else System.arraycopy(Numbers, 0, numbers, cnt, N);
+            cnt += N;
+        }
+    }
     //  Функция, возвращающая индекс первого вхождения переданного числа. В случае отсутствия вернет -1
     public int getIndexOf(int number) { return 0; }
     // Операция удаления первого вхождения переданного числа.
