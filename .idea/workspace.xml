@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eafa59a4-6232-4bcc-a0cb-b9971208a035" name="Changes" comment="Добавлены все операции добавления чисел и их тестирование">
+    <list default="true" id="eafa59a4-6232-4bcc-a0cb-b9971208a035" name="Changes" comment="Добавлены все операции поиска и возвращения вспомогательной информации и их тестирование">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/rinchik/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/rinchik/Container.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/rinchik/ContainerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/rinchik/ContainerTest.java" afterDir="false" />
@@ -55,7 +55,22 @@
       <recent name="org.rinchik" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ContainerTest">
+    <configuration name="ContainerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="first-lab" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.rinchik.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.rinchik" />
+      <option name="MAIN_CLASS_NAME" value="org.rinchik.ContainerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ContainerTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="first-lab" />
       <extension name="coverage">
@@ -67,6 +82,38 @@
       <option name="PACKAGE_NAME" value="org.rinchik" />
       <option name="MAIN_CLASS_NAME" value="org.rinchik.ContainerTest" />
       <option name="METHOD_NAME" value="add" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContainerTest.deleteDuplicates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="first-lab" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.rinchik.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.rinchik" />
+      <option name="MAIN_CLASS_NAME" value="org.rinchik.ContainerTest" />
+      <option name="METHOD_NAME" value="deleteDuplicates" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContainerTest.deleteN" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="first-lab" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.rinchik.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.rinchik" />
+      <option name="MAIN_CLASS_NAME" value="org.rinchik.ContainerTest" />
+      <option name="METHOD_NAME" value="deleteN" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -87,6 +134,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ContainerTest" />
+        <item itemvalue="JUnit.ContainerTest.deleteN" />
+        <item itemvalue="JUnit.ContainerTest.deleteDuplicates" />
         <item itemvalue="JUnit.ContainerTest.add" />
       </list>
     </recent_temporary>
@@ -124,13 +174,22 @@
       <option name="project" value="LOCAL" />
       <updated>1743961240600</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Добавлены все операции поиска и возвращения вспомогательной информации и их тестирование">
+      <option name="closed" value="true" />
+      <created>1743964853534</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743964853534</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Добавлены первые операции добавления чисел, массива чисел, получения массива всех элементов и создан ContainerTest" />
     <MESSAGE value="Добавлены java доки для реализованных методов" />
     <MESSAGE value="Добавлены все операции добавления чисел и их тестирование" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлены все операции добавления чисел и их тестирование" />
+    <MESSAGE value="Добавлены все операции поиска и возвращения вспомогательной информации и их тестирование" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлены все операции поиска и возвращения вспомогательной информации и их тестирование" />
   </component>
 </project>

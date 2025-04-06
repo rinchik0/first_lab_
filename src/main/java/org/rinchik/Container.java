@@ -120,13 +120,97 @@ public class Container {
             return i;
         return -1;
     }
-    // Операция удаления первого вхождения переданного числа.
-    // В случае успешного удаления вернет true, иначе false
-    public boolean delete(int number) { return false; }
-    // Операция удаления последнего числа в контейнере
-    public boolean deleteLast() { return false; }
-    // Операция удаления числа по его индексу
-    public boolean deleteByIndex(int index) { return false; }
+    /**
+     * Функция, удаляющая первое вхождение переданного числа.
+     * В случае успешного удаления вернет true, иначе false.
+     * @param number число для удаления
+     * @return результат удаления
+     */
+    public boolean delete(int number) {
+        int index = getIndexOf(number);
+        if (index != -1) {
+            for (int i = index; i < cnt - 1; i++)
+                numbers[i] = numbers[i + 1];
+            numbers[cnt - 1] = 0;
+            cnt--;
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Функция, удаляющая последнее числа в контейнере.
+     * В случае успешного удаления вернет true, иначе false.
+     * @return результат удаления
+     */
+    public boolean deleteLast() {
+        if (cnt > 0) {
+            numbers[cnt - 1] = 0;
+            cnt--;
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Функция, удаляющая число по его индексу.
+     * В случае успешного удаления вернет true, иначе false.
+     * @param index индекс
+     * @return результат удаления
+     */
+    public boolean deleteByIndex(int index) {
+        if (index < cnt && index >= 0) {
+            for (int i = index; i < cnt; i++)
+                numbers[i] = numbers[i + 1];
+            numbers[cnt - 1] = 0;
+            cnt--;
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Функция, удаляющая все вхождения переданного числа.
+     * @param number число
+     */
+    public void deleteDuplicates(int number) {
+        int index;
+        do {
+            index = getIndexOf(number);
+            if (index != -1) {
+                for (int i = index; i < cnt - 1; i++)
+                    numbers[i] = numbers[i + 1];
+                numbers[cnt - 1] = 0;
+                cnt--;
+            }
+        } while (index != -1);
+    }
+    /**
+     * Функция, удаляющая какое-то количество чисел, идущих друг за другом, начиная с элемента под переданным индексом.
+     * Возвращает true, если выполнены обы условия: индекс внутри массива и после этого индекса есть нужное количество чисел.
+     * В противном случае возвращает false. При этом, если индекс внутри массива, удалятся элементы после него, даже если их
+     * недостаточно (меньше N).
+     * @param index индекс первого элемента для удаления
+     * @param N количество удаляемых элементов
+     * @return результат удаления
+     */
+    public boolean deleteN(int index, int N) {
+        if (index >= 0 && index < cnt) {
+            if (index + N >= cnt) {
+                for (int i = index; i < cnt; i++)
+                    numbers[i] = 0;
+                cnt = index;
+                return false;
+            }
+            else {
+                for (int i = index; i < index + N; i++)
+                    if (i + N > cnt)
+                        numbers[i] = 0;
+                    else
+                        numbers[i] = numbers[i + N];
+                cnt -= N;
+                return true;
+            }
+        }
+        return false;
+    }
     /**
      * Функция, возвращающая последнее число в контейнере.
      * @return число
@@ -135,8 +219,16 @@ public class Container {
         if (cnt > 0) return numbers[cnt - 1];
         return null;
     }
-    // Операция полного очищения контейнера
-    public void clear() {}
+    /**
+     * Функция, полностью очищающая контейнер.
+     */
+    public void clear() {
+        n = 10;
+        for (int i = 0; i < cnt; i++)
+            numbers[i] = 0;
+        numbers = new int[n];
+        cnt = 0;
+    }
     /**
      * Функция, проверки пустоты контейнера.
      * Возвращает true, если в контейнере есть числа, и false - если нет.

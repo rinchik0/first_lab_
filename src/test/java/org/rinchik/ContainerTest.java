@@ -144,4 +144,114 @@ class ContainerTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    void delete() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 76};
+        Container c = new Container();
+        c.add(b, 8);
+
+        boolean[] actualResult = {c.delete(76), c.delete(2)};
+        int[] resultArray = c.getAll();
+        Object[] actual = {actualResult, resultArray};
+
+        boolean[] expectedResult = {true, false};
+        int[] expectedArray = {12, 43, 98, 21, 89, 56, 76};
+        Object[] expected = {expectedResult, expectedArray};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void deleteLast() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        boolean[] actualResult = new boolean[2];
+        actualResult[0] = c.deleteLast();
+        int[] actualArray = c.getAll();
+        for (int i = 0; i < 7; i++)
+            c.deleteLast();
+        actualResult[1] = c.deleteLast();
+        Object[] actual = {actualResult, actualArray};
+
+        boolean[] expectedResult = {true, false};
+        int[] expectedArray = {12, 43, 76, 98, 21, 89, 56};
+        Object[] expected = {expectedResult, expectedArray};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void deleteByIndex() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        boolean[] actualResult = {c.deleteByIndex(6), c.deleteByIndex(-1), c.deleteByIndex(78)};
+        int[] actualArray = c.getAll();
+        Object[] actual = {actualResult, actualArray};
+
+        boolean[] expectedResult = {true, false, false};
+        int[] expectedArray = {12, 43, 76, 98, 21, 89, 23};
+        Object[] expected = {expectedResult, expectedArray};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void clear() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        c.clear();
+        int[] actual = c.getAll();
+
+        int[] expected = {};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void deleteDuplicates() {
+        int[] b = {12, 43, 12, 98, 21, 12, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        c.deleteDuplicates(12);
+        int[][] actual = new int[2][8];
+        actual[0] = c.getAll();
+        c.deleteDuplicates(1);
+        actual[1] = c.getAll();
+
+        int[][] expected = {{43, 98, 21, 56, 23}, {43, 98, 21, 56, 23}};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void deleteN() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        boolean[] actualResult = new boolean[3];
+        actualResult[0] = c.deleteN(2, 3);
+        int[] actualArray1 = c.getAll();
+        actualResult[1] = c.deleteN(4, 3);
+        int[] actualArray2 = c.getAll();
+        actualResult[2] = c.deleteN(-1, 6);
+        int[] actualArray3 = c.getAll();
+        Object[] actual = {actualResult, actualArray1, actualArray2, actualArray3};
+
+        boolean[] expectedResult = {true, false, false};
+        int[] expectedArray1 = {12, 43, 89, 56, 23};
+        int[] expectedArray2 = {12, 43, 89, 56};
+        int[] expectedArray3 = {12, 43, 89, 56};
+        Object[] expected = {expectedResult, expectedArray1, expectedArray2, expectedArray3};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }
