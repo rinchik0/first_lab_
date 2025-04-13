@@ -1,10 +1,14 @@
 package org.rinchik;
 
+import org.rinchik.interfaces.IterativeCollection;
+import org.rinchik.interfaces.MyIterator;
+
 /**
  * Класс-контейнер для хранения произвольного количества целых чисел.
  * Позволяет хранить, добавлять, удалять элементы.
+ * Имплементирует свойства итеративной коллекции IterativeCollection.
  */
-public class Container {
+public class Container implements IterativeCollection {
     private int[] numbers;
     private int n, cnt;
     /**
@@ -261,5 +265,10 @@ public class Container {
         int[] result = new int[cnt];
         System.arraycopy(numbers, 0, result, 0, cnt);
         return result;
+    }
+    // Понадобился бы для вывода коллекции
+    @Override
+    public MyIterator createIterator() {
+        return new ContainerIterator(numbers, cnt);
     }
 }

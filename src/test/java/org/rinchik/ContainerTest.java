@@ -2,6 +2,7 @@ package org.rinchik;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.rinchik.interfaces.MyIterator;
 
 class ContainerTest {
 
@@ -253,5 +254,21 @@ class ContainerTest {
         Object[] expected = {expectedResult, expectedArray1, expectedArray2, expectedArray3};
 
         Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void createIterator() {
+        int[] b = {12, 43, 76, 98, 21, 89, 56, 23};
+        Container c = new Container();
+        c.add(b, 8);
+
+        String actual = "";
+        MyIterator iterator = c.createIterator();
+        while (iterator.hasNext())
+            actual += (iterator.next() + " ");
+
+        String expected = "12 43 76 98 21 89 56 23 ";
+
+        Assertions.assertEquals(expected, actual);
     }
 }
